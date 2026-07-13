@@ -37,6 +37,9 @@ exports[`WriteComment component > renders heading, buttons, inputs 1`] = `
     <button>
       Login
     </button>
+    <button>
+      or Sign Up
+    </button>
   </div>
 </div>
 `;

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SignUp from "./SignUp";
 
 function Login({ setLoggedIn }) {
   const [inputEmail, setInputEmail] = useState("");
@@ -6,9 +7,14 @@ function Login({ setLoggedIn }) {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [loggingIn, setLoggingIn] = useState(false);
+  const [signUpForm, setSignUpForm] = useState(false);
 
   const apiUrl = import.meta.env.VITE_API_URL;
   const url = `${apiUrl}login`;
+
+  const openSignUpForm = () => {
+    setSignUpForm(!signUpForm);
+  };
 
   const sendLogin = () => {
     console.log("logging in");
@@ -58,8 +64,10 @@ function Login({ setLoggedIn }) {
         />
       </div>
       <button onClick={sendLogin}>Login</button>
+      <button onClick={openSignUpForm}>or Sign Up</button>
       {error && <p className="characters">A network error was encountered</p>}
       {response && <p className="characters">{response.message}</p>}
+      {signUpForm && <SignUp />}
     </div>
   );
 }
