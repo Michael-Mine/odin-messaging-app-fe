@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useChats = () => {
+const useChats = (username) => {
   const [chats, setChats] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -11,9 +11,12 @@ const useChats = () => {
   useEffect(() => {
     console.log("fetching chats");
     fetch(`${apiUrl}user-chats`, {
+      method: "POST",
       headers: {
         Authorization: `Bearer ${JWT}`,
+        "content-type": "application/json",
       },
+      body: JSON.stringify({ username }),
     })
       .then((response) => {
         if (!response.ok) {
@@ -24,7 +27,7 @@ const useChats = () => {
       .then((response) => setChats([...response]))
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
-  }, [apiUrl, JWT]);
+  }, [apiUrl, JWT, username]);
 
   return { chats, error, loading };
 };

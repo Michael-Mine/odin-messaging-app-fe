@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SignUp from "./SignUp";
 
-function Login({ setLoggedIn }) {
+function Login({ setLoggedIn, setUsername }) {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPass, setInputPass] = useState("");
   const [response, setResponse] = useState(null);
@@ -30,7 +30,10 @@ function Login({ setLoggedIn }) {
       .then((response) => response.json())
       .then((response) => setResponse({ ...response }))
       .catch((error) => setError(error))
-      .finally(() => setLoggingIn(false));
+      .finally(() => {
+        setUsername(inputEmail);
+        setLoggingIn(false);
+      });
   };
 
   if (loggingIn) return <p>Logging In...</p>;

@@ -3,23 +3,26 @@ import Footer from "./layouts/Footer";
 import Login from "./components/Login";
 import "./styles/button.css";
 import "./styles/input.css";
+import Home from "./layouts/Home";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [username, setUsername] = useState(null);
   const token = localStorage.getItem("JWT");
 
   const logout = () => {
     localStorage.removeItem("JWT");
     setLoggedIn(false);
+    window.location.reload();
   };
 
   return (
     <>
       <h1>Mr Mine Messaging App </h1>
-      {token || loggedIn ? (
-        <h2>Logged In!</h2>
+      {(token || loggedIn) && username ? (
+        <Home username={username} />
       ) : (
-        <Login setLoggedIn={setLoggedIn} />
+        <Login setLoggedIn={setLoggedIn} setUsername={setUsername} />
       )}
       <div>
         {(token || loggedIn) && (
