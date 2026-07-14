@@ -1,13 +1,14 @@
+import Chats from "../components/Chats";
 import useChats from "../hooks/useChats";
 import Header from "../layouts/Header";
-import Navbar from "../layouts/Navbar";
 
 const chats = [
   {
-    subject: null,
+    cuid: 1,
+    subject: "null",
     users: [
       {
-        id: 1,
+        // id: 1,
         username: "m@m.net",
         name: "Mine",
         bio: "SWE12",
@@ -16,17 +17,17 @@ const chats = [
     messages: [],
   },
   {
-    id: 3,
+    cuid: 3,
     subject: null,
     users: [
       {
-        id: 1,
+        // cuid: 1,
         username: "m@m.net",
         name: "Mine",
         bio: "SWE12",
       },
       {
-        id: 1,
+        // cuid: 2,
         username: "m2@m.net",
         name: "Mine2",
         bio: null,
@@ -34,19 +35,19 @@ const chats = [
     ],
     messages: [
       {
-        id: 1,
+        cuid: 1,
         senderId: 1,
         content: "Test1",
         createdAt: "2026-07-12T17:48:37.168Z",
       },
       {
-        id: 2,
+        cuid: 2,
         senderId: 1,
         content: "Test2",
         createdAt: "2026-07-12T18:48:37.168Z",
       },
       {
-        id: 2,
+        cuid: 2,
         senderId: 2,
         content: "Test3",
         createdAt: "2026-07-12T19:48:37.168Z",
@@ -61,14 +62,16 @@ const chats = [
 // how to deal with users leaving chats?
 
 function Home({ username, setLoggedIn }) {
-  const { chats, error, loading } = useChats(username);
+  console.log(username);
 
-  console.log(chats);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>A network error was encountered</p>;
+  // const { chats, error, loading } = useChats(username);
+
+  // console.log(chats);
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>A network error was encountered</p>;
 
   // states: chats, current chat, current profile
-  //chats List, add button
+
   //chat messages, message input,
   //profile, edit button
 
@@ -80,6 +83,7 @@ function Home({ username, setLoggedIn }) {
   return (
     <>
       <Header setLoggedIn={setLoggedIn} />
+      <Chats chats={chats} />
     </>
   );
 }
