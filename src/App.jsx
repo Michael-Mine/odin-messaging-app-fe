@@ -11,26 +11,14 @@ function App() {
   const token = localStorage.getItem("JWT");
   const username = localStorage.getItem("MMA");
 
-  const logout = () => {
-    localStorage.removeItem("JWT");
-    localStorage.removeItem("MMA");
-    setLoggedIn(false);
-    window.location.reload();
-  };
-
   return (
     <>
       <Navbar />
       {(token || loggedIn) && username ? (
-        <Home username={username} />
+        <Home setLoggedIn={setLoggedIn} username={username} />
       ) : (
         <Login setLoggedIn={setLoggedIn} />
       )}
-      <div>
-        {(token || loggedIn) && (
-          <button onClick={() => logout()}>Logout</button>
-        )}
-      </div>
       <Footer />
     </>
   );

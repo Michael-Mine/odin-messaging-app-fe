@@ -1,4 +1,5 @@
 import useChats from "../hooks/useChats";
+import Header from "../layouts/Header";
 import Navbar from "../layouts/Navbar";
 
 const chats = [
@@ -59,7 +60,7 @@ const chats = [
 // get profiles from chats?
 // how to deal with users leaving chats?
 
-function Home({ username }) {
+function Home({ username, setLoggedIn }) {
   const { chats, error, loading } = useChats(username);
 
   console.log(chats);
@@ -78,9 +79,7 @@ function Home({ username }) {
 
   return (
     <>
-      <h1>Mr Mine Messaging App</h1>
-
-      <h2>Logged In with {username}</h2>
+      <Header setLoggedIn={setLoggedIn} />
     </>
   );
 }
