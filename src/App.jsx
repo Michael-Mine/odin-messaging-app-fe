@@ -3,7 +3,8 @@ import Footer from "./layouts/Footer";
 import Login from "./components/Login";
 import "./styles/button.css";
 import "./styles/input.css";
-import Home from "./layouts/Home";
+import Home from "./pages/Home";
+import Navbar from "./layouts/Navbar";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <>
+      <Navbar />
       <h1>Mr Mine Messaging App </h1>
       {(token || loggedIn) && username ? (
         <Home username={username} />
