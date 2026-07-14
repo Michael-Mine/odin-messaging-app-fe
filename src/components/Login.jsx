@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SignUp from "./SignUp";
 
-function Login({ setLoggedIn, setUsername }) {
+function Login({ setLoggedIn }) {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPass, setInputPass] = useState("");
   const [response, setResponse] = useState(null);
@@ -30,22 +30,21 @@ function Login({ setLoggedIn, setUsername }) {
       .then((response) => response.json())
       .then((response) => setResponse({ ...response }))
       .catch((error) => setError(error))
-      .finally(() => {
-        setUsername(inputEmail);
-        setLoggingIn(false);
-      });
+      .finally(() => setLoggingIn(false));
   };
 
   if (loggingIn) return <p>Logging In...</p>;
 
   if (response && response.token) {
     localStorage.setItem("JWT", response.token);
+    localStorage.setItem("MMA", inputEmail);
     setLoggedIn(true);
   }
 
   return (
     <div>
-      <h4>Login to access</h4>
+      <h1>Mr Mine Messaging App</h1>
+      <h2>Login to access</h2>
       <div className="input-container">
         <label htmlFor="username">Email:</label>
         <input

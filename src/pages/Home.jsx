@@ -78,6 +78,8 @@ function Home({ username }) {
 
   return (
     <>
+      <h1>Mr Mine Messaging App</h1>
+
       <h2>Logged In with {username}</h2>
     </>
   );

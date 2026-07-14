@@ -8,11 +8,12 @@ import Navbar from "./layouts/Navbar";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState(null);
   const token = localStorage.getItem("JWT");
+  const username = localStorage.getItem("MMA");
 
   const logout = () => {
     localStorage.removeItem("JWT");
+    localStorage.removeItem("MMA");
     setLoggedIn(false);
     window.location.reload();
   };
@@ -20,11 +21,10 @@ function App() {
   return (
     <>
       <Navbar />
-      <h1>Mr Mine Messaging App </h1>
       {(token || loggedIn) && username ? (
         <Home username={username} />
       ) : (
-        <Login setLoggedIn={setLoggedIn} setUsername={setUsername} />
+        <Login setLoggedIn={setLoggedIn} />
       )}
       <div>
         {(token || loggedIn) && (
