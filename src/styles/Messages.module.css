@@ -1,6 +1,7 @@
 .container {
   padding: 20px;
-  background-color: grey;
+  background-color: mediumpurple;
+  text-align: justify;
 }
 
 .heading {
@@ -10,5 +11,5 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 0px;
+  gap: 20px;
 }

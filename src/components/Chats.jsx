@@ -3,10 +3,8 @@ import styles from "../styles/Chats.module.css";
 function Chats({ chats }) {
   return (
     <div className={styles.container}>
-      {/* <div className={styles.header}> */}
-      <h2>Chats</h2>
+      <h2 className={styles.heading}>Chats</h2>
       <button>New Chat</button>
-      {/* </div> */}
       <div className={styles.list}>
         {chats.map((chat) => {
           return <ChatItem chat={chat} key={chat.cuid} />;
