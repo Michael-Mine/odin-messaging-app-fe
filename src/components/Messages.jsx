@@ -1,6 +1,7 @@
 import MessageItem from "./MessageItem";
 import styles from "../styles/Messages.module.css";
 import formatDate from "../utils/formatDate";
+import WriteMessage from "./WriteMessage";
 
 function Messages({ chat }) {
   const username = localStorage.getItem("MMA");
@@ -62,7 +63,7 @@ function Messages({ chat }) {
           }
         })}
       </div>
-      {/* Write Message */}
+      <WriteMessage />
     </div>
   );
 }

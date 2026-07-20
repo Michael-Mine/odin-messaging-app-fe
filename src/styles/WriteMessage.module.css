@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  /* justify-content: center; */
+}
+
+.input {
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  letter-spacing: 0.1ch;
+  border: 1px solid #783192;
+  flex: 1;
+  /* height: 3rem; */
+}
+
+.button {
+  margin-right: 0px;
+}
