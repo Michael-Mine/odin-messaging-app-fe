@@ -1,11 +1,17 @@
 .container {
-  padding: 20px 20px 5px;
-  background-color: mediumpurple;
+  padding: 5px 20px 5px;
+  background-color: #e6e6e6;
   text-align: justify;
+  border-radius: 20px;
 }
 
 .heading {
-  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.headingName {
+  margin-bottom: 0px;
 }
 
 .list {

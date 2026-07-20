@@ -1,16 +1,18 @@
 .userContainer {
   padding: 10px;
-  background-color: lightpink;
+  background-color: #e4d6e9;
   width: 90%;
   border-radius: 10px;
   align-self: flex-end;
+  /* max-width: 666px; */
 }
 
 .otherContainer {
   padding: 10px;
-  background-color: lightgray;
+  background-color: #ffffff;
   width: 90%;
   border-radius: 10px;
+  /* max-width: 666px; */
 }
 
 .name {

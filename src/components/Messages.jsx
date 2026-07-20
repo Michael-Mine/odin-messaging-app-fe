@@ -1,7 +1,7 @@
 import MessageItem from "./MessageItem";
-import styles from "../styles/Messages.module.css";
 import formatDate from "../utils/formatDate";
 import WriteMessage from "./WriteMessage";
+import styles from "../styles/Messages.module.css";
 
 function Messages({ chat }) {
   const username = localStorage.getItem("MMA");
@@ -19,7 +19,10 @@ function Messages({ chat }) {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>{heading}</h2>
+      <div className={styles.heading}>
+        <button>Profile</button>
+        <h2 className={styles.headingName}>{heading}</h2>
+      </div>
       <div className={styles.list}>
         {chat.messages.map((message, idx, arr) => {
           const currentDate = formatDate(message.createdAt);

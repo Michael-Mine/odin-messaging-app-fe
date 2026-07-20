@@ -1,8 +1,9 @@
 import { useState } from "react";
-import Chats from "../components/Chats";
-import Messages from "../components/Messages";
 import useChats from "../hooks/useChats";
 import Header from "../layouts/Header";
+import Chats from "../components/Chats";
+import Messages from "../components/Messages";
+import Profile from "../components/Profile";
 import styles from "../styles/Home.module.css";
 
 const chats = [
@@ -14,7 +15,7 @@ const chats = [
         // id: 1,
         username: "m@m.net",
         name: "Mine",
-        bio: "SWE12",
+        bio: "The first if statement will now execute and return a <div> with the text “Loading…” This is often the case when you are fetching from an API, since it might take some time to actually retrieve the data, it is good practice to show an indicator for that. If none of those checks passed, then we have t",
       },
       {
         // cuid: 2,
@@ -104,7 +105,7 @@ function Home({ username, setLoggedIn }) {
 
   // states: chats, current chat, current profile
 
-  //chat messages, message input,
+  //new chat,
   //profile, edit button
 
   // apis - get profile. update profile,
@@ -116,6 +117,7 @@ function Home({ username, setLoggedIn }) {
       <div className={styles.container}>
         <Chats chats={chats} />
         <Messages chat={chats[1]} />
+        <Profile user={chats[0].users[0]} />
       </div>
     </>
   );

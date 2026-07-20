@@ -1,6 +1,7 @@
 .container {
   padding: 20px;
-  background-color: grey;
+  background-color: #e6e6e6;
+  border-radius: 20px;
 }
 
 .heading {
