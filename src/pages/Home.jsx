@@ -36,13 +36,13 @@ const chats = [
         senderId: 1,
         content:
           "One is to check if the property animals exists, and the other is to check if the length of the list is greater than 0. In this case, our list is empty, so the second if statement executes, which immediately returns the <div> element that contains the text “There are no animals in the list”.",
-        createdAt: "2026-07-12T18:48:37.168Z",
+        createdAt: "2026-07-13T18:48:37.168Z",
       },
       {
         cuid: 6,
         senderId: 2,
         content: "If we remove the animals property:",
-        createdAt: "2026-07-12T19:48:37.168Z",
+        createdAt: "2026-07-14T19:48:37.168Z",
       },
     ],
   },
@@ -76,14 +76,14 @@ const chats = [
         senderId: 1,
         content:
           "If none of those checks passed, then we have the data we need to render the list successfully. Try it out by adding items to the animals list and adding the property back.",
-        createdAt: "2026-07-12T18:48:37.168Z",
+        createdAt: "2026-07-13T18:48:37.168Z",
       },
       {
         cuid: 3,
         senderId: 2,
         content:
           "You can, of course, also accomplish this with just the ternary and && operators.",
-        createdAt: "2026-07-12T19:48:37.168Z",
+        createdAt: "2026-07-14T19:48:37.168Z",
       },
     ],
   },

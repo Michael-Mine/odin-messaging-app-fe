@@ -1,0 +1,23 @@
+.userContainer {
+  padding: 10px;
+  background-color: lightpink;
+  width: 90%;
+  border-radius: 10px;
+  align-self: flex-end;
+}
+
+.otherContainer {
+  padding: 10px;
+  background-color: lightgray;
+  width: 90%;
+  border-radius: 10px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.time {
+  font-size: 14px;
+  float: right;
+}
