@@ -3,6 +3,14 @@
   background-color: #e6e6e6;
   text-align: justify;
   border-radius: 20px;
+  max-height: 1000px;
+  overflow-y: auto;
+  overflow-anchor: none;
+}
+
+.anchor {
+  overflow-anchor: auto;
+  height: 1px;
 }
 
 .heading {

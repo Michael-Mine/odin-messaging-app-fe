@@ -1,10 +1,19 @@
+import { useState } from "react";
 import styles from "../styles/Chats.module.css";
+import NewChat from "./NewChat";
 
 function Chats({ chats }) {
+  const [newChatForm, setNewChatForm] = useState(false);
+
+  const openNewChatForm = () => {
+    setNewChatForm(!newChatForm);
+  };
+
   return (
     <div className={styles.container}>
       <h2 className={styles.heading}>Chats</h2>
-      <button>New Chat</button>
+      <button onClick={openNewChatForm}>New Chat</button>
+      {newChatForm && <NewChat />}
       <div className={styles.list}>
         {chats.map((chat) => {
           return <ChatItem chat={chat} key={chat.cuid} />;

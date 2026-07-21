@@ -1,0 +1,8 @@
+.bioInput {
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  letter-spacing: 0.1ch;
+  border: 1px solid #783192;
+  height: 18rem;
+}

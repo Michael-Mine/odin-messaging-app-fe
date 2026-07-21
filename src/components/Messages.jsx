@@ -2,8 +2,15 @@ import MessageItem from "./MessageItem";
 import formatDate from "../utils/formatDate";
 import WriteMessage from "./WriteMessage";
 import styles from "../styles/Messages.module.css";
+import { useEffect, useRef } from "react";
 
 function Messages({ chat }) {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    containerRef.current.scrollTop = containerRef.current.scrollHeight;
+  }, []);
+
   const username = localStorage.getItem("MMA");
   let isGroupChat = false;
   let heading;
@@ -18,7 +25,7 @@ function Messages({ chat }) {
   }
 
   return (
-    <div className={styles.container}>
+    <div ref={containerRef} className={styles.container}>
       <div className={styles.heading}>
         <button>Profile</button>
         <h2 className={styles.headingName}>{heading}</h2>
@@ -67,6 +74,7 @@ function Messages({ chat }) {
         })}
       </div>
       <WriteMessage />
+      {/* <div className={styles.anchor}></div> */}
     </div>
   );
 }

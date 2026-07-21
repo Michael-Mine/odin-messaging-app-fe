@@ -86,6 +86,27 @@ const chats = [
           "You can, of course, also accomplish this with just the ternary and && operators.",
         createdAt: "2026-07-14T19:48:37.168Z",
       },
+      {
+        cuid: 4,
+        senderId: 1,
+        content:
+          "The first if statement will now execute and return a <div> with the text “Loading…” This is often the case when you are fetching from an API, since it might take some time to actually retrieve the data, it is good practice to show an indicator for that.",
+        createdAt: "2026-07-12T17:48:37.168Z",
+      },
+      {
+        cuid: 5,
+        senderId: 1,
+        content:
+          "If none of those checks passed, then we have the data we need to render the list successfully. Try it out by adding items to the animals list and adding the property back.",
+        createdAt: "2026-07-13T18:48:37.168Z",
+      },
+      {
+        cuid: 6,
+        senderId: 2,
+        content:
+          "You can, of course, also accomplish this with just the ternary and && operators.",
+        createdAt: "2026-07-14T19:48:37.168Z",
+      },
     ],
   },
 ];
@@ -106,7 +127,6 @@ function Home({ username, setLoggedIn }) {
   // states: chats, current chat, current profile
 
   //new chat,
-  //profile, edit button
 
   // apis - get profile. update profile,
   // create chat, create message
