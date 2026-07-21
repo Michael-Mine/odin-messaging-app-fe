@@ -12,7 +12,7 @@ function Profile({ user }) {
 
   return (
     <div className={styles.container}>
-      <h2>{user.name}</h2>
+      <h2>Profile for {user.name}</h2>
       <h3>{user.username}</h3>
       <p>{user.bio && user.bio}</p>
       {username == user.username && (

@@ -2,11 +2,16 @@ import { useState } from "react";
 import styles from "../styles/Chats.module.css";
 import NewChat from "./NewChat";
 
-function Chats({ chats }) {
+function Chats({ chats, setCurrentChat }) {
   const [newChatForm, setNewChatForm] = useState(false);
 
   const openNewChatForm = () => {
     setNewChatForm(!newChatForm);
+  };
+
+  const openMessages = (chatCuid) => {
+    const chatsIndex = chats.findIndex((chat) => chat.cuid == chatCuid);
+    setCurrentChat(chats[chatsIndex]);
   };
 
   return (
@@ -16,27 +21,35 @@ function Chats({ chats }) {
       {newChatForm && <NewChat />}
       <div className={styles.list}>
         {chats.map((chat) => {
-          return <ChatItem chat={chat} key={chat.cuid} />;
+          return (
+            <ChatItem
+              chatItem={chat}
+              openMessages={openMessages}
+              key={chat.cuid}
+            />
+          );
         })}
       </div>
     </div>
   );
 }
 
-function ChatItem({ chat }) {
+function ChatItem({ chatItem, openMessages }) {
   const username = localStorage.getItem("MMA");
 
   let buttonName;
 
-  if (chat.subject) {
-    buttonName = chat.subject;
-  } else if (chat.users[0].username !== username) {
-    buttonName = chat.users[0].name;
+  if (chatItem.subject) {
+    buttonName = chatItem.subject;
+  } else if (chatItem.users[0].username !== username) {
+    buttonName = chatItem.users[0].name;
   } else {
-    buttonName = chat.users[1].name;
+    buttonName = chatItem.users[1].name;
   }
 
-  return <button>{buttonName}</button>;
+  return (
+    <button onClick={() => openMessages(chatItem.cuid)}>{buttonName}</button>
+  );
 }
 
 export default Chats;

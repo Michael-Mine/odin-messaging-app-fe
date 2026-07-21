@@ -117,16 +117,14 @@ const chats = [
 // how to deal with users leaving chats?
 
 function Home({ username, setLoggedIn }) {
+  const [currentChat, setCurrentChat] = useState(null);
+  const [currentProfile, setCurrentProfile] = useState(null);
+
   // const { chats, error, loading } = useChats(username);
-  // const [currentChat, setCurrentChat] = useState(null)
 
   // console.log(chats);
   // if (loading) return <p>Loading...</p>;
   // if (error) return <p>A network error was encountered</p>;
-
-  // states: chats, current chat, current profile
-
-  //new chat,
 
   // apis - get profile. update profile,
   // create chat, create message
@@ -135,8 +133,8 @@ function Home({ username, setLoggedIn }) {
     <>
       <Header setLoggedIn={setLoggedIn} />
       <div className={styles.container}>
-        <Chats chats={chats} />
-        <Messages chat={chats[1]} />
+        <Chats chats={chats} setCurrentChat={setCurrentChat} />
+        {currentChat && <Messages chat={currentChat} />}
         <Profile user={chats[0].users[0]} />
       </div>
     </>

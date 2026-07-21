@@ -9,7 +9,7 @@ function Messages({ chat }) {
 
   useEffect(() => {
     containerRef.current.scrollTop = containerRef.current.scrollHeight;
-  }, []);
+  }, [chat]);
 
   const username = localStorage.getItem("MMA");
   let isGroupChat = false;
@@ -74,7 +74,6 @@ function Messages({ chat }) {
         })}
       </div>
       <WriteMessage />
-      {/* <div className={styles.anchor}></div> */}
     </div>
   );
 }
