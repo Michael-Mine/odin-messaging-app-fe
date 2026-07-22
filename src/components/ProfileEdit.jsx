@@ -1,14 +1,47 @@
 import { useState } from "react";
 import styles from "../styles/ProfileEdit.module.css";
 
-function ProfileEdit({ user }) {
+function ProfileEdit({ user, setProfileUser }) {
   const [formData, setFormData] = useState({
     name: user.name,
     bio: user.bio,
   });
+  const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = () => {
+    const apiUrl = import.meta.env.VITE_API_URL;
+    const JWT = localStorage.getItem("JWT");
+    const username = localStorage.getItem("MMA");
+    console.log("updating profile");
+    setSubmitting(true);
+
+    fetch(`${apiUrl}profile`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${JWT}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        name: formData.name,
+        bio: formData.bio,
+      }),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        setResponse({ ...response });
+        if (response.message === "User profile updated") {
+          setProfileUser(response.updatedUser);
+        }
+      })
+      .catch((error) => setError(error))
+      .finally(() => setSubmitting(false));
   };
 
   return (
@@ -38,7 +71,10 @@ function ProfileEdit({ user }) {
           className={styles.bioInput}
         />
       </div>
-      <button>Submit</button>
+      <button onClick={onSubmit}>Submit</button>
+      {submitting && <h3>Submitting...</h3>}
+      {error && <h3>A network error was encountered</h3>}
+      {response && <h3>{response.message || response[0].msg}</h3>}
     </div>
   );
 }

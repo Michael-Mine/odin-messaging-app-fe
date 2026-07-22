@@ -6,7 +6,6 @@ import Messages from "../components/Messages";
 import Profile from "../components/Profile";
 import GroupInfo from "../components/GroupInfo";
 import styles from "../styles/Home.module.css";
-import useProfile from "../hooks/useProfile";
 
 function Home({ setLoggedIn }) {
   const [currentChat, setCurrentChat] = useState(null);
@@ -55,7 +54,7 @@ function Home({ setLoggedIn }) {
     setGroupInfoChat(chat);
   };
 
-  // apis - update profile,
+  // apis
   // create chat, create message
   // add leave group/chat
 
@@ -77,7 +76,11 @@ function Home({ setLoggedIn }) {
           />
         )}
         {sideCompOpen == "profile" && profileUser && (
-          <Profile user={profileUser} setSideCompOpen={setSideCompOpen} />
+          <Profile
+            user={profileUser}
+            setSideCompOpen={setSideCompOpen}
+            setProfileUser={setProfileUser}
+          />
         )}
         {sideCompOpen == "group" && groupInfoChat && (
           <GroupInfo
