@@ -4,7 +4,7 @@ import WriteMessage from "./WriteMessage";
 import styles from "../styles/Messages.module.css";
 import { useEffect, useRef } from "react";
 
-function Messages({ chat, setProfileCompOpen, getProfileUser }) {
+function Messages({ chat, setSideCompOpen, getProfileUser, getGroupInfoChat }) {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -24,20 +24,36 @@ function Messages({ chat, setProfileCompOpen, getProfileUser }) {
     heading = chat.users[1].name;
   }
 
-  const handleClick = () => {
+  const handleGroupInfoClick = () => {
+    getGroupInfoChat(chat.subject);
+    setSideCompOpen("group");
+  };
+
+  const handleProfileClick = () => {
     if (chat.users[0].username !== username) {
       getProfileUser(chat.users[0].username);
     } else {
       getProfileUser(chat.users[1].username);
     }
-    setProfileCompOpen(true);
+    setSideCompOpen("profile");
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
-        <button onClick={handleClick}>Profile</button>
-        <h2 className={styles.headingName}>{heading}</h2>
+        {isGroupChat ? (
+          <>
+            <button onClick={handleGroupInfoClick}>Group Info</button>
+            <h2 className={styles.headingName}>{heading}</h2>
+            <button>Leave Group</button>
+          </>
+        ) : (
+          <>
+            <button onClick={handleProfileClick}>Profile</button>
+            <h2 className={styles.headingName}>{heading}</h2>
+            <button>Leave Chat</button>
+          </>
+        )}
       </div>
       <div ref={containerRef} className={styles.list}>
         {chat.messages.map((message, idx, arr) => {
@@ -46,7 +62,9 @@ function Messages({ chat, setProfileCompOpen, getProfileUser }) {
           if (idx < 1) {
             return (
               <>
-                <div class={styles.divider}>{currentDate.toDateString()}</div>
+                <div className={styles.divider}>
+                  {currentDate.toDateString()}
+                </div>
                 <MessageItem
                   message={message}
                   isGroupChat={isGroupChat}
@@ -62,7 +80,9 @@ function Messages({ chat, setProfileCompOpen, getProfileUser }) {
             ) {
               return (
                 <>
-                  <div class={styles.divider}>{currentDate.toDateString()}</div>
+                  <div className={styles.divider}>
+                    {currentDate.toDateString()}
+                  </div>
                   <MessageItem
                     message={message}
                     isGroupChat={isGroupChat}

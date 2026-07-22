@@ -5,6 +5,7 @@ import Chats from "../components/Chats";
 import Messages from "../components/Messages";
 import Profile from "../components/Profile";
 import styles from "../styles/Home.module.css";
+import GroupInfo from "../components/GroupInfo";
 
 const chats = [
   {
@@ -118,15 +119,20 @@ const chats = [
 
 function Home({ setLoggedIn }) {
   const [currentChat, setCurrentChat] = useState(null);
-  const [profileCompOpen, setProfileCompOpen] = useState(false);
+  const [sideCompOpen, setSideCompOpen] = useState(false);
   const [profileUser, setProfileUser] = useState(null);
+  const [groupInfoChat, setGroupInfoChat] = useState(null);
 
   const getProfileUser = (username) => {
     const user = chats
       .flatMap((obj) => obj.users)
       .find((user) => user.username === username);
-    console.log(user);
     setProfileUser(user);
+  };
+
+  const getGroupInfoChat = (chatSubject) => {
+    const chat = chats.find((chat) => chat.subject === chatSubject);
+    setGroupInfoChat(chat);
   };
 
   // const username = localStorage.getItem("MMA");
@@ -141,7 +147,7 @@ function Home({ setLoggedIn }) {
   return (
     <>
       <Header
-        setProfileCompOpen={setProfileCompOpen}
+        setSideCompOpen={setSideCompOpen}
         getProfileUser={getProfileUser}
         setLoggedIn={setLoggedIn}
       />
@@ -150,12 +156,20 @@ function Home({ setLoggedIn }) {
         {currentChat && (
           <Messages
             chat={currentChat}
-            setProfileCompOpen={setProfileCompOpen}
+            setSideCompOpen={setSideCompOpen}
             getProfileUser={getProfileUser}
+            getGroupInfoChat={getGroupInfoChat}
           />
         )}
-        {profileCompOpen && profileUser && (
-          <Profile user={profileUser} setProfileCompOpen={setProfileCompOpen} />
+        {sideCompOpen == "profile" && profileUser && (
+          <Profile user={profileUser} setSideCompOpen={setSideCompOpen} />
+        )}
+        {sideCompOpen == "group" && groupInfoChat && (
+          <GroupInfo
+            chat={groupInfoChat}
+            setSideCompOpen={setSideCompOpen}
+            getProfileUser={getProfileUser}
+          />
         )}
       </div>
     </>

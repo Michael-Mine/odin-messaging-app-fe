@@ -1,6 +1,6 @@
 import styles from "../styles/Header.module.css";
 
-function Header({ setProfileCompOpen, getProfileUser, setLoggedIn }) {
+function Header({ setSideCompOpen, getProfileUser, setLoggedIn }) {
   const username = localStorage.getItem("MMA");
 
   const logout = () => {
@@ -12,12 +12,12 @@ function Header({ setProfileCompOpen, getProfileUser, setLoggedIn }) {
 
   const handleClick = () => {
     getProfileUser(username);
-    setProfileCompOpen(true);
+    setSideCompOpen("profile");
   };
 
   return (
     <div className={styles.header}>
-      <button onClick={handleClick}>Profile</button>
+      <button onClick={handleClick}>My Profile</button>
       <h1>Mr Mine Messaging App</h1>
       <button onClick={() => logout()}>Logout</button>
     </div>
