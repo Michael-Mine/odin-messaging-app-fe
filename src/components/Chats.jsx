@@ -22,11 +22,7 @@ function Chats({ chats, setCurrentChat }) {
       <div className={styles.list}>
         {chats.map((chat) => {
           return (
-            <ChatItem
-              chatItem={chat}
-              openMessages={openMessages}
-              key={chat.cuid}
-            />
+            <ChatItem chat={chat} openMessages={openMessages} key={chat.cuid} />
           );
         })}
       </div>
@@ -34,22 +30,22 @@ function Chats({ chats, setCurrentChat }) {
   );
 }
 
-function ChatItem({ chatItem, openMessages }) {
+function ChatItem({ chat, openMessages }) {
   const username = localStorage.getItem("MMA");
 
   let buttonName;
 
-  if (chatItem.subject) {
-    buttonName = chatItem.subject;
-  } else if (chatItem.users[0].username !== username) {
-    buttonName = chatItem.users[0].name;
+  if (chat.subject) {
+    buttonName = chat.subject;
+  } else if (chat.users.length == 1) {
+    buttonName = "Other user left";
+  } else if (chat.users[0].username !== username) {
+    buttonName = chat.users[0].name;
   } else {
-    buttonName = chatItem.users[1].name;
+    buttonName = chat.users[1].name;
   }
 
-  return (
-    <button onClick={() => openMessages(chatItem.cuid)}>{buttonName}</button>
-  );
+  return <button onClick={() => openMessages(chat.cuid)}>{buttonName}</button>;
 }
 
 export default Chats;

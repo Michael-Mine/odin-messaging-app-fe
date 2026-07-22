@@ -18,6 +18,8 @@ function Messages({ chat, setSideCompOpen, getProfileUser, getGroupInfoChat }) {
   if (chat.subject) {
     isGroupChat = true;
     heading = chat.subject;
+  } else if (chat.users.length == 1) {
+    heading = "No other user in chat";
   } else if (chat.users[0].username !== username) {
     heading = chat.users[0].name;
   } else {
@@ -49,7 +51,9 @@ function Messages({ chat, setSideCompOpen, getProfileUser, getGroupInfoChat }) {
           </>
         ) : (
           <>
-            <button onClick={handleProfileClick}>Profile</button>
+            {chat.users > 1 && (
+              <button onClick={handleProfileClick}>Profile</button>
+            )}
             <h2 className={styles.headingName}>{heading}</h2>
             <button>Leave Chat</button>
           </>
@@ -102,7 +106,7 @@ function Messages({ chat, setSideCompOpen, getProfileUser, getGroupInfoChat }) {
           }
         })}
       </div>
-      <WriteMessage />
+      {chat.users > 1 ? <WriteMessage /> : <h4>No other user in chat</h4>}
     </div>
   );
 }
