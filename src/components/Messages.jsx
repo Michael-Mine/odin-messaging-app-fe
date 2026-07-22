@@ -4,7 +4,7 @@ import WriteMessage from "./WriteMessage";
 import styles from "../styles/Messages.module.css";
 import { useEffect, useRef } from "react";
 
-function Messages({ chat }) {
+function Messages({ chat, setProfileCompOpen, getProfileUser }) {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -24,13 +24,22 @@ function Messages({ chat }) {
     heading = chat.users[1].name;
   }
 
+  const handleClick = () => {
+    if (chat.users[0].username !== username) {
+      getProfileUser(chat.users[0].username);
+    } else {
+      getProfileUser(chat.users[1].username);
+    }
+    setProfileCompOpen(true);
+  };
+
   return (
-    <div ref={containerRef} className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.heading}>
-        <button>Profile</button>
+        <button onClick={handleClick}>Profile</button>
         <h2 className={styles.headingName}>{heading}</h2>
       </div>
-      <div className={styles.list}>
+      <div ref={containerRef} className={styles.list}>
         {chat.messages.map((message, idx, arr) => {
           const currentDate = formatDate(message.createdAt);
 

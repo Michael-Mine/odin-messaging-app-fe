@@ -3,9 +3,6 @@
   background-color: #e6e6e6;
   text-align: justify;
   border-radius: 20px;
-  max-height: 1000px;
-  overflow-y: auto;
-  overflow-anchor: none;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -27,6 +24,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-height: 800px;
+  overflow-y: auto;
 }
 
 .divider {

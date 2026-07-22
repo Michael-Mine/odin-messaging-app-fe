@@ -116,12 +116,21 @@ const chats = [
 // get profiles from chats?
 // how to deal with users leaving chats?
 
-function Home({ username, setLoggedIn }) {
+function Home({ setLoggedIn }) {
   const [currentChat, setCurrentChat] = useState(null);
-  const [currentProfile, setCurrentProfile] = useState(null);
+  const [profileCompOpen, setProfileCompOpen] = useState(false);
+  const [profileUser, setProfileUser] = useState(null);
 
+  const getProfileUser = (username) => {
+    const user = chats
+      .flatMap((obj) => obj.users)
+      .find((user) => user.username === username);
+    console.log(user);
+    setProfileUser(user);
+  };
+
+  // const username = localStorage.getItem("MMA");
   // const { chats, error, loading } = useChats(username);
-
   // console.log(chats);
   // if (loading) return <p>Loading...</p>;
   // if (error) return <p>A network error was encountered</p>;
@@ -131,11 +140,23 @@ function Home({ username, setLoggedIn }) {
 
   return (
     <>
-      <Header setLoggedIn={setLoggedIn} />
+      <Header
+        setProfileCompOpen={setProfileCompOpen}
+        getProfileUser={getProfileUser}
+        setLoggedIn={setLoggedIn}
+      />
       <div className={styles.container}>
         <Chats chats={chats} setCurrentChat={setCurrentChat} />
-        {currentChat && <Messages chat={currentChat} />}
-        <Profile user={chats[0].users[0]} />
+        {currentChat && (
+          <Messages
+            chat={currentChat}
+            setProfileCompOpen={setProfileCompOpen}
+            getProfileUser={getProfileUser}
+          />
+        )}
+        {profileCompOpen && profileUser && (
+          <Profile user={profileUser} setProfileCompOpen={setProfileCompOpen} />
+        )}
       </div>
     </>
   );

@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "../styles/Profile.module.css";
 import ProfileEdit from "./ProfileEdit";
 
-function Profile({ user }) {
+function Profile({ user, setProfileCompOpen }) {
   const [profileEditForm, setProfileEditForm] = useState(false);
   const username = localStorage.getItem("MMA");
 
@@ -12,9 +12,11 @@ function Profile({ user }) {
 
   return (
     <div className={styles.container}>
-      <h2>Profile for {user.name}</h2>
+      <h2>{user.name} Profile</h2>
       <h3>{user.username}</h3>
       <p>{user.bio && user.bio}</p>
+
+      <button onClick={() => setProfileCompOpen(false)}>Close</button>
       {username == user.username && (
         <button onClick={openProfileEditForm}>Edit</button>
       )}

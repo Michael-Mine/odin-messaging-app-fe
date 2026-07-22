@@ -15,7 +15,7 @@ function App() {
     <>
       <Navbar />
       {(token || loggedIn) && username ? (
-        <Home setLoggedIn={setLoggedIn} username={username} />
+        <Home setLoggedIn={setLoggedIn} />
       ) : (
         <Login setLoggedIn={setLoggedIn} />
       )}
