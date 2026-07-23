@@ -55,7 +55,7 @@ function Home({ setLoggedIn }) {
   };
 
   // apis
-  // create chat, create message
+  // add member
   // add leave group/chat
 
   return (

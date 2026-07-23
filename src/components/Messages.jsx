@@ -107,7 +107,7 @@ function Messages({ chat, setSideCompOpen, getProfileUser, getGroupInfoChat }) {
         })}
       </div>
       {chat.users.length > 1 ? (
-        <WriteMessage />
+        <WriteMessage chatCuid={chat.cuid} />
       ) : (
         <h4>No other user in chat</h4>
       )}
