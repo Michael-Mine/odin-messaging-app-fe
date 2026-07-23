@@ -51,7 +51,7 @@ function Messages({ chat, setSideCompOpen, getProfileUser, getGroupInfoChat }) {
           </>
         ) : (
           <>
-            {chat.users > 1 && (
+            {chat.users.length > 1 && (
               <button onClick={handleProfileClick}>Profile</button>
             )}
             <h2 className={styles.headingName}>{heading}</h2>
@@ -106,7 +106,11 @@ function Messages({ chat, setSideCompOpen, getProfileUser, getGroupInfoChat }) {
           }
         })}
       </div>
-      {chat.users > 1 ? <WriteMessage /> : <h4>No other user in chat</h4>}
+      {chat.users.length > 1 ? (
+        <WriteMessage />
+      ) : (
+        <h4>No other user in chat</h4>
+      )}
     </div>
   );
 }

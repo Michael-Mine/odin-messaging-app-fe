@@ -3,6 +3,7 @@ import Footer from "./layouts/Footer";
 import Login from "./components/Login";
 import "./styles/button.css";
 import "./styles/input.css";
+import "./styles/checkbox.css";
 import Home from "./pages/Home";
 import Navbar from "./layouts/Navbar";
 
