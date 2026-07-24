@@ -3,23 +3,8 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Home from "./Home";
 import useChats from "../hooks/useChats";
-import Header from "../layouts/Header";
-import Chats from "../components/Chats";
-import Messages from "../components/Messages";
-import Profile from "../components/Profile";
-import GroupInfo from "../components/GroupInfo";
 
 vi.mock("../hooks/useChats");
-// vi.mock("../layouts/Header");
-// vi.mock("../layouts/Header", () => ({
-//   default: ({ getProfileUser }) => (
-//     <button onClick={() => getProfileUser("mr@mine.net")}>My Profile</button>
-//   ),
-// }));
-
-// vi.mock("../components/Profile", () => ({
-//   default: ({ user }) => <div>{user.name} Profile</div>,
-// }));
 
 describe("Home component", () => {
   it("renders loading heading", () => {
