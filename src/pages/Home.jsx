@@ -54,10 +54,6 @@ function Home({ setLoggedIn }) {
     setGroupInfoChat(chat);
   };
 
-  // apis
-  // add member
-  // add leave group/chat
-
   return (
     <>
       <Header
