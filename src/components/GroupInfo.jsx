@@ -18,7 +18,7 @@ function GroupInfo({ chat, setSideCompOpen, getProfileUser }) {
     <div className={styles.container}>
       <h2 className={styles.heading}>{chat.subject}</h2>
       <button onClick={openAddMemberForm}>Add Member</button>
-      {addMemberForm && <AddMember />}
+      {addMemberForm && <AddMember chatCuid={chat.cuid} />}
 
       <div className={styles.list}>
         {chat.users.map((user) => {
