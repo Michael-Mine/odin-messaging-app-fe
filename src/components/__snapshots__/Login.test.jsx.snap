@@ -1,11 +1,61 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Login component > renders heading, buttons, inputs 1`] = `
+<div>
+  <div>
+    <h1>
+      Mr Mine Messaging App
+    </h1>
+    <h2>
+      Login to access
+    </h2>
+    <div
+      class="input-container"
+    >
+      <label
+        for="username"
+      >
+        Email:
+      </label>
+      <input
+        class="input-field"
+        data-testid="username-input"
+        id="username"
+        type="text"
+        value=""
+      />
+      <label
+        for="password"
+      >
+        Password:
+      </label>
+      <input
+        class="input-field"
+        data-testid="password-input"
+        id="password"
+        type="text"
+        value=""
+      />
+    </div>
+    <button>
+      Login
+    </button>
+    <button>
+      or Sign Up
+    </button>
+  </div>
+</div>
+`;
+
 exports[`WriteComment component > renders heading, buttons, inputs 1`] = `
 <div>
   <div>
-    <h4>
+    <h1>
+      Mr Mine Messaging App
+    </h1>
+    <h2>
       Login to access
-    </h4>
+    </h2>
     <div
       class="input-container"
     >

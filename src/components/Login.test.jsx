@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Login from "./Login";
 
-describe("WriteComment component", () => {
+describe("Login component", () => {
   it("renders heading, buttons, inputs", () => {
     const { container } = render(<Login setLoggedIn={() => {}} />);
 
