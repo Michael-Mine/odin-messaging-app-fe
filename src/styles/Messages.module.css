@@ -11,17 +11,6 @@
   height: 1px;
 }
 
-.heading {
-  display: flex;
-  align-items: center;
-  /* gap: 30px; */
-  justify-content: space-between;
-}
-
-.headingName {
-  margin-bottom: 0px;
-}
-
 .list {
   display: flex;
   flex-direction: column;
