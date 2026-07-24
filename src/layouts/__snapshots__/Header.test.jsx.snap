@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header component > renders to last snapshot 1`] = `
+<div>
+  <div
+    class="_header_28153b"
+  >
+    <button>
+      My Profile
+    </button>
+    <h1>
+      Mr Mine Messaging App
+    </h1>
+    <button>
+      Logout
+    </button>
+  </div>
+</div>
+`;

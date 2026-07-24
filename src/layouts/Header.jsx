@@ -1,18 +1,19 @@
+import reloadPage from "../utils/reloadPage";
 import styles from "../styles/Header.module.css";
 
 function Header({ setSideCompOpen, getProfileUser, setLoggedIn }) {
   const username = localStorage.getItem("MMA");
 
+  const handleClick = () => {
+    getProfileUser(username);
+    setSideCompOpen("profile");
+  };
+
   const logout = () => {
     localStorage.removeItem("JWT");
     localStorage.removeItem("MMA");
     setLoggedIn(false);
-    window.location.reload();
-  };
-
-  const handleClick = () => {
-    getProfileUser(username);
-    setSideCompOpen("profile");
+    reloadPage();
   };
 
   return (
