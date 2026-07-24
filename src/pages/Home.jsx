@@ -15,7 +15,7 @@ function Home({ setLoggedIn }) {
 
   const username = localStorage.getItem("MMA");
   const { chats, error, loading } = useChats(username);
-  console.log(chats);
+
   if (loading) return <h2>Loading...</h2>;
   if (error) return <h2>A network error was encountered</h2>;
 
