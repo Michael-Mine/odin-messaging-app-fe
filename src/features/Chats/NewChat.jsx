@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/NewChat.module.css";
+import styles from "./NewChat.module.css";
 
 function NewChat() {
   const [usernameInput, setUsernameInput] = useState("");

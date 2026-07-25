@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/WriteMessage.module.css";
+import styles from "./WriteMessage.module.css";
 
 function WriteMessage({ chatCuid }) {
   const [input, setInput] = useState("");

@@ -1,5 +1,5 @@
 import reloadPage from "../utils/reloadPage";
-import styles from "../styles/Header.module.css";
+import styles from "./Header.module.css";
 
 function Header({ setSideCompOpen, getProfileUser, setLoggedIn }) {
   const username = localStorage.getItem("MMA");

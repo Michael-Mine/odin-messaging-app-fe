@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/ProfileEdit.module.css";
+import styles from "./ProfileEdit.module.css";
 
 function ProfileEdit({ user, setProfileUser }) {
   const [formData, setFormData] = useState({

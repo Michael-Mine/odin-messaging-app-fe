@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/Profile.module.css";
+import styles from "./Profile.module.css";
 import ProfileEdit from "./ProfileEdit";
 
 function Profile({ user, setSideCompOpen, setProfileUser }) {

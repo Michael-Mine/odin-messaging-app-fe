@@ -1,5 +1,5 @@
-import styles from "../styles/MessageItem.module.css";
-import formatDate from "../utils/formatDate";
+import styles from "./MessageItem.module.css";
+import formatDate from "../../utils/formatDate";
 
 function MessageItem({ message, isGroupChat }) {
   const username = localStorage.getItem("MMA");

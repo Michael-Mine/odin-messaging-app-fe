@@ -1,7 +1,7 @@
 import messageIcon from "../assets/message-outline.svg";
 import myLogo from "../assets/logo.png";
 import githubLogo from "../assets/github-mark.svg";
-import styles from "../styles/Navbar.module.css";
+import styles from "./Navbar.module.css";
 
 function Navbar() {
   return (

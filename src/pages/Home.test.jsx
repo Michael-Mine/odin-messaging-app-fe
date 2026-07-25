@@ -2,9 +2,9 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Home from "./Home";
-import useChats from "../hooks/useChats";
+import useChats from "./useChats";
 
-vi.mock("../hooks/useChats");
+vi.mock("./useChats");
 
 describe("Home component", () => {
   it("renders loading heading", () => {

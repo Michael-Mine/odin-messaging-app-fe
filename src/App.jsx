@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Footer from "./layouts/Footer";
-import Login from "./components/Login";
+import Login from "./features/auth/Login";
 import "./styles/button.css";
 import "./styles/input.css";
 import "./styles/checkbox.css";

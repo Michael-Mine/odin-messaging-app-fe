@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/Chats.module.css";
+import styles from "./Chats.module.css";
 import NewChat from "./NewChat";
 import ChatItem from "./ChatItem";
 

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import useChats from "../hooks/useChats";
+import useChats from "./useChats";
 import Header from "../layouts/Header";
-import Chats from "../components/Chats";
-import Messages from "../components/Messages";
-import Profile from "../components/Profile";
-import GroupInfo from "../components/GroupInfo";
-import styles from "../styles/Home.module.css";
+import Chats from "../features/Chats/Chats";
+import Messages from "../features/messages/Messages";
+import Profile from "../features/profile/Profile";
+import GroupInfo from "../features/profile/GroupInfo";
+import styles from "./Home.module.css";
 
 function Home({ setLoggedIn }) {
   const [currentChat, setCurrentChat] = useState(null);

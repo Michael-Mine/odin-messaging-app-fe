@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AddMember from "./AddMember";
-import styles from "../styles/GroupInfo.module.css";
+import styles from "./GroupInfo.module.css";
 
 function GroupInfo({ chat, setSideCompOpen, getProfileUser }) {
   const [addMemberForm, setAddMemberForm] = useState(false);

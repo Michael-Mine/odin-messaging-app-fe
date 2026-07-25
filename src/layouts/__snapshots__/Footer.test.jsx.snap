@@ -9,7 +9,7 @@ exports[`Footer component > renders 3 links with logos 1`] = `
     >
       <img
         alt="Vite logo"
-        class="_logo_088786"
+        class="_logo_44095f"
         src="/favicon.svg"
       />
     </a>
@@ -20,7 +20,7 @@ exports[`Footer component > renders 3 links with logos 1`] = `
     >
       <img
         alt="Mr Mine logo"
-        class="_myLogo_088786"
+        class="_myLogo_44095f"
         src="/src/assets/logo.png"
       />
     </a>
@@ -30,7 +30,7 @@ exports[`Footer component > renders 3 links with logos 1`] = `
     >
       <img
         alt="React logo"
-        class="_logo_088786"
+        class="_logo_44095f"
         src="/src/assets/react.svg"
       />
     </a>

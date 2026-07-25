@@ -1,7 +1,7 @@
 import MessageItem from "./MessageItem";
-import formatDate from "../utils/formatDate";
+import formatDate from "../../utils/formatDate";
 import WriteMessage from "./WriteMessage";
-import styles from "../styles/Messages.module.css";
+import styles from "./Messages.module.css";
 import { useEffect, useRef } from "react";
 import MessagesHeader from "./MessagesHeader";
 

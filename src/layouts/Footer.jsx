@@ -1,7 +1,7 @@
 import reactLogo from "../assets/react.svg";
 import viteLogo from "/favicon.svg";
 import myLogo from "../assets/logo.png";
-import styles from "../styles/Footer.module.css";
+import styles from "./Footer.module.css";
 
 function Footer() {
   return (

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/MessagesHeader.module.css";
+import styles from "./MessagesHeader.module.css";
 
 function MessagesHeader({
   chat,
