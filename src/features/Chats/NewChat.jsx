@@ -1,4 +1,6 @@
 import { useState } from "react";
+import createChat from "./api/createChat";
+import reloadPage from "../../utils/reloadPage";
 import styles from "./NewChat.module.css";
 
 function NewChat() {
@@ -10,29 +12,21 @@ function NewChat() {
   const [submitting, setSubmitting] = useState(false);
 
   const onSubmit = () => {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    const JWT = localStorage.getItem("JWT");
+    const jwt = localStorage.getItem("JWT");
     const username = localStorage.getItem("MMA");
     console.log("creating chat");
     setSubmitting(true);
 
-    fetch(`${apiUrl}chat`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${JWT}`,
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        username2: usernameInput,
-        subject: subjectInput,
-      }),
+    createChat({
+      jwt,
+      username,
+      username2: usernameInput,
+      subject: subjectInput,
     })
-      .then((response) => response.json())
       .then((response) => {
         setResponse({ ...response });
         if (response.message === "New chat created") {
-          window.location.reload();
+          reloadPage();
         }
       })
       .catch((error) => setError(error))
