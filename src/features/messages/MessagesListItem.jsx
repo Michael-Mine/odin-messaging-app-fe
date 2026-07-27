@@ -1,13 +1,14 @@
-import styles from "./MessageItem.module.css";
+import styles from "./MessagesListItem.module.css";
 import formatDate from "../../utils/formatDate";
 
-function MessageItem({ message, isGroupChat }) {
+function MessageListItem({ message, isGroupChat }) {
   const username = localStorage.getItem("MMA");
   const date = formatDate(message.createdAt);
 
-  //change to username check
   const containerStyles =
-    message.senderId == 1 ? styles.userContainer : styles.otherContainer;
+    message.sender.username === username
+      ? styles.userContainer
+      : styles.otherContainer;
 
   return (
     <div className={containerStyles}>
@@ -22,4 +23,4 @@ function MessageItem({ message, isGroupChat }) {
   );
 }
 
-export default MessageItem;
+export default MessageListItem;

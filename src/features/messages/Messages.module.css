@@ -5,31 +5,3 @@
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-
-.anchor {
-  overflow-anchor: auto;
-  height: 1px;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-height: 800px;
-  overflow-y: auto;
-}
-
-.divider {
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-}
-
-.divider::before,
-.divider::after {
-  flex: 1;
-  content: "";
-  padding: 0.5px;
-  background-color: black;
-  margin: 5px;
-}
