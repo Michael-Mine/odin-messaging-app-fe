@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import formatDate from "../../utils/formatDate";
 import MessagesListItem from "./MessagesListItem";
-import styles from "./MessagesList.module.css";
 import shouldShowDivider from "./shouldShowDivider";
+import styles from "./MessagesList.module.css";
 
 function MessagesList({ messages, isGroupChat }) {
   const containerRef = useRef(null);

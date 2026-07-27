@@ -1,5 +1,5 @@
-import styles from "./MessagesListItem.module.css";
 import formatDate from "../../utils/formatDate";
+import styles from "./MessagesListItem.module.css";
 
 function MessageListItem({ message, isGroupChat }) {
   const username = localStorage.getItem("MMA");
@@ -11,9 +11,11 @@ function MessageListItem({ message, isGroupChat }) {
       : styles.otherContainer;
 
   return (
-    <div className={containerStyles}>
+    <div className={containerStyles} data-testid="message-container">
       <div className={styles.name}>
-        {isGroupChat && message.senderId !== 1 && message.senderId}
+        {isGroupChat &&
+          message.sender.username !== username &&
+          message.sender.name}
       </div>
       {message.content}
       <span className={styles.time}>
