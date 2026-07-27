@@ -6,7 +6,7 @@ import styles from "./NewChat.module.css";
 function NewChat() {
   const [usernameInput, setUsernameInput] = useState("");
   const [isChecked, setIsChecked] = useState(false);
-  const [subjectInput, setSubjectInput] = useState("");
+  const [subjectInput, setSubjectInput] = useState(null);
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [submitting, setSubmitting] = useState(false);
@@ -41,24 +41,25 @@ function NewChat() {
           className="input-field"
           id="name"
           name="name"
-          // data-testid="name-input"
+          data-testid="name-input"
           type="text"
           value={usernameInput}
           onChange={(event) => setUsernameInput(event.target.value)}
         />
       </div>
       <div className={styles.checkbox}>
-        <label>Group Chat? </label>
-        <div class="checkbox-wrapper-12">
+        <label htmlFor="group-chat">Group Chat?</label>
+        <div className="checkbox-wrapper-12">
           <div class="cbx">
             <input
+              name="group-chat"
               checked=""
               type="checkbox"
-              id="cbx-12"
+              id="group-chat"
               checked={isChecked}
               onChange={(e) => setIsChecked(e.target.checked)}
             />
-            <label for="cbx-12"></label>
+            <label htmlFor="cbx-12"></label>
             <svg fill="none" viewBox="0 0 15 14" height="14" width="15">
               <path d="M2 8.36364L6.23077 12L13 2"></path>
             </svg>
@@ -92,7 +93,7 @@ function NewChat() {
               className="input-field"
               id="group-subject"
               name="group-subject"
-              // data-testid="name-input"
+              data-testid="subject-input"
               type="text"
               value={subjectInput}
               onChange={(event) => setSubjectInput(event.target.value)}
