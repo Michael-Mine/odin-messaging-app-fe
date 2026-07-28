@@ -42,6 +42,7 @@ function WriteMessage({ chatCuid }) {
       <div className={styles.container}>
         <textarea
           type="text"
+          data-testid="write-message"
           placeholder="Write a message"
           value={input}
           onChange={(event) => setInput(event.target.value)}
