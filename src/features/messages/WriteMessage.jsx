@@ -1,4 +1,6 @@
 import { useState } from "react";
+import createMessage from "./api/createMessage";
+import reloadPage from "../../utils/reloadPage";
 import styles from "./WriteMessage.module.css";
 
 function WriteMessage({ chatCuid }) {
@@ -8,29 +10,21 @@ function WriteMessage({ chatCuid }) {
   const [submitting, setSubmitting] = useState(false);
 
   const onSubmit = () => {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    const JWT = localStorage.getItem("JWT");
+    const jwt = localStorage.getItem("JWT");
     const username = localStorage.getItem("MMA");
     console.log("creating chat");
     setSubmitting(true);
 
-    fetch(`${apiUrl}message`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${JWT}`,
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        chatCuid,
-        content: input,
-      }),
+    createMessage({
+      jwt,
+      username,
+      chatCuid,
+      content: input,
     })
-      .then((response) => response.json())
       .then((response) => {
         setResponse({ ...response });
         if (response.message === "New message created") {
-          window.location.reload();
+          reloadPage();
         }
       })
       .catch((error) => setError(error))
