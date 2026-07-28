@@ -4,6 +4,7 @@
   width: 90%;
   border-radius: 10px;
   align-self: flex-end;
+  overflow-wrap: break-word;
   /* max-width: 666px; */
 }
 
@@ -12,6 +13,7 @@
   background-color: #ffffff;
   width: 90%;
   border-radius: 10px;
+  overflow-wrap: break-word;
   /* max-width: 666px; */
 }
 

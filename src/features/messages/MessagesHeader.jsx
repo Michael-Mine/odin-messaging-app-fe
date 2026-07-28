@@ -1,4 +1,6 @@
 import { useState } from "react";
+import getHeading from "./getHeading";
+import deleteChat from "./api/deleteChat";
 import styles from "./MessagesHeader.module.css";
 
 function MessagesHeader({
@@ -14,17 +16,19 @@ function MessagesHeader({
 
   const username = localStorage.getItem("MMA");
 
-  let heading;
+  // let heading;
 
-  if (isGroupChat) {
-    heading = chat.subject;
-  } else if (chat.users.length == 1) {
-    heading = "No other user in chat";
-  } else if (chat.users[0].username !== username) {
-    heading = chat.users[0].name;
-  } else {
-    heading = chat.users[1].name;
-  }
+  // if (isGroupChat) {
+  //   heading = chat.subject;
+  // } else if (chat.users.length == 1) {
+  //   heading = "No other user in chat";
+  // } else if (chat.users[0].username !== username) {
+  //   heading = chat.users[0].name;
+  // } else {
+  //   heading = chat.users[1].name;
+  // }
+
+  const heading = getHeading(chat, username, isGroupChat);
 
   const handleGroupInfoClick = () => {
     getGroupInfoChat(chat.subject);
@@ -41,23 +45,15 @@ function MessagesHeader({
   };
 
   const leaveChat = () => {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    const JWT = localStorage.getItem("JWT");
-    console.log("adding member chat");
+    const jwt = localStorage.getItem("JWT");
+    console.log("leaving chat");
     setSubmitting(true);
 
-    fetch(`${apiUrl}chat`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${JWT}`,
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        chatCuid: chat.cuid,
-      }),
+    deleteChat({
+      jwt,
+      username,
+      chatCuid: chat.cuid,
     })
-      .then((response) => response.json())
       .then((response) => {
         setResponse({ ...response });
         if (response.message === "User left chat") {
