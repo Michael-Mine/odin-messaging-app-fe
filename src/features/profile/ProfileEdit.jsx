@@ -1,4 +1,5 @@
 import { useState } from "react";
+import updateProfile from "./api/updateProfile";
 import styles from "./ProfileEdit.module.css";
 
 function ProfileEdit({ user, setProfileUser }) {
@@ -15,25 +16,17 @@ function ProfileEdit({ user, setProfileUser }) {
   };
 
   const onSubmit = () => {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    const JWT = localStorage.getItem("JWT");
+    const jwt = localStorage.getItem("JWT");
     const username = localStorage.getItem("MMA");
     console.log("updating profile");
     setSubmitting(true);
 
-    fetch(`${apiUrl}profile`, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${JWT}`,
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        name: formData.name,
-        bio: formData.bio,
-      }),
+    updateProfile({
+      jwt,
+      username,
+      name: formData.name,
+      bio: formData.bio,
     })
-      .then((response) => response.json())
       .then((response) => {
         setResponse({ ...response });
         if (response.message === "User profile updated") {
@@ -64,7 +57,6 @@ function ProfileEdit({ user, setProfileUser }) {
           id="about"
           name="bio"
           type="text"
-          placeholder="Write a message"
           value={formData.bio}
           onChange={handleChange}
           maxLength="300"
