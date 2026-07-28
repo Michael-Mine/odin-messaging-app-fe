@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Write message component > renders input and button 1`] = `
+<div>
+  <div
+    class="_container_4e596f"
+  >
+    <textarea
+      class="_input_4e596f"
+      data-testid="write-message"
+      maxlength="1000"
+      placeholder="Write a message"
+      type="text"
+    />
+    <button
+      class="_button_4e596f"
+    >
+      Send
+    </button>
+  </div>
+  <div />
+</div>
+`;
