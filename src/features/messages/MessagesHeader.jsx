@@ -15,19 +15,6 @@ function MessagesHeader({
   const [submitting, setSubmitting] = useState(false);
 
   const username = localStorage.getItem("MMA");
-
-  // let heading;
-
-  // if (isGroupChat) {
-  //   heading = chat.subject;
-  // } else if (chat.users.length == 1) {
-  //   heading = "No other user in chat";
-  // } else if (chat.users[0].username !== username) {
-  //   heading = chat.users[0].name;
-  // } else {
-  //   heading = chat.users[1].name;
-  // }
-
   const heading = getHeading(chat, username, isGroupChat);
 
   const handleGroupInfoClick = () => {
