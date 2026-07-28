@@ -1,6 +1,7 @@
 import { useState } from "react";
 import getHeading from "./getHeading";
 import deleteChat from "./api/deleteChat";
+import reloadPage from "../../utils/reloadPage";
 import styles from "./MessagesHeader.module.css";
 
 function MessagesHeader({
@@ -44,7 +45,7 @@ function MessagesHeader({
       .then((response) => {
         setResponse({ ...response });
         if (response.message === "User left chat") {
-          window.location.reload();
+          reloadPage();
         }
       })
       .catch((error) => setError(error))
