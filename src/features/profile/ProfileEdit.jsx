@@ -45,7 +45,7 @@ function ProfileEdit({ user, setProfileUser }) {
           className="input-field"
           id="name"
           name="name"
-          // data-testid="name-input"
+          data-testid="name-input"
           type="text"
           value={formData.name}
           onChange={handleChange}
@@ -61,6 +61,7 @@ function ProfileEdit({ user, setProfileUser }) {
           onChange={handleChange}
           maxLength="300"
           className={styles.bioInput}
+          data-testid="bio-input"
         />
       </div>
       <button onClick={onSubmit}>Submit</button>
