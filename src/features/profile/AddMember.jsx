@@ -1,4 +1,5 @@
 import { useState } from "react";
+import updateChat from "./api/updateChat";
 
 function AddMember({ chatCuid }) {
   const [input, setInput] = useState("");
@@ -7,25 +8,17 @@ function AddMember({ chatCuid }) {
   const [submitting, setSubmitting] = useState(false);
 
   const onSubmit = () => {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    const JWT = localStorage.getItem("JWT");
+    const jwt = localStorage.getItem("JWT");
     const username = localStorage.getItem("MMA");
     console.log("adding member chat");
     setSubmitting(true);
 
-    fetch(`${apiUrl}chat`, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${JWT}`,
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        username2: input,
-        chatCuid,
-      }),
+    updateChat({
+      jwt,
+      username,
+      username2: input,
+      chatCuid,
     })
-      .then((response) => response.json())
       .then((response) => {
         setResponse({ ...response });
         if (response.message === "New member added") {
@@ -43,7 +36,7 @@ function AddMember({ chatCuid }) {
           className="input-field"
           id="name"
           name="name"
-          // data-testid="name-input"
+          data-testid="name-input"
           type="text"
           value={input}
           onChange={(event) => setInput(event.target.value)}
