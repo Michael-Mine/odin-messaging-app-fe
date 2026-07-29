@@ -1,5 +1,6 @@
 import { useState } from "react";
 import updateChat from "./api/updateChat";
+import reloadPage from "../../utils/reloadPage";
 
 function AddMember({ chatCuid }) {
   const [input, setInput] = useState("");
@@ -22,7 +23,7 @@ function AddMember({ chatCuid }) {
       .then((response) => {
         setResponse({ ...response });
         if (response.message === "New member added") {
-          window.location.reload();
+          reloadPage();
         }
       })
       .catch((error) => setError(error))

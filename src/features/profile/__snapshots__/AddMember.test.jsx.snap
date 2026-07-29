@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Add Member component > renders text, input & button 1`] = `
+<div>
+  <div>
+    <label
+      for="name"
+    >
+      Enter Username:
+    </label>
+    <div
+      class="input-container"
+    >
+      <input
+        class="input-field"
+        data-testid="name-input"
+        id="name"
+        name="name"
+        type="text"
+        value=""
+      />
+    </div>
+    <button>
+      Submit
+    </button>
+  </div>
+</div>
+`;
