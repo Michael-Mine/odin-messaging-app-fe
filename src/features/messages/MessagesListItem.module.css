@@ -1,7 +1,7 @@
 .userContainer {
   padding: 10px;
   background-color: #e4d6e9;
-  width: 90%;
+  max-width: 85%;
   border-radius: 10px;
   align-self: flex-end;
   overflow-wrap: break-word;
@@ -11,8 +11,9 @@
 .otherContainer {
   padding: 10px;
   background-color: #ffffff;
-  width: 90%;
+  max-width: 85%;
   border-radius: 10px;
+  align-self: flex-start;
   overflow-wrap: break-word;
   /* max-width: 666px; */
 }

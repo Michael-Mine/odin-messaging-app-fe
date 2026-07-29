@@ -17,7 +17,7 @@ function MessageListItem({ message, isGroupChat }) {
           message.sender.username !== username &&
           message.sender.name}
       </div>
-      {message.content}
+      <div>{message.content}</div>
       <span className={styles.time}>
         {date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
       </span>
